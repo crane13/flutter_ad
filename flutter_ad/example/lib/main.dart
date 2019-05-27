@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_ad/flutter_ad.dart';
+import 'package:flutter_ad/view/BannerView.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,7 +49,15 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: <Widget>[
+              BannerView(
+                appId: '1101152570',
+                bannerPosID: '4080052898050840',
+              ),
+              Text('Running on: $_platformVersion\n')
+            ],
+          ),
         ),
       ),
     );
