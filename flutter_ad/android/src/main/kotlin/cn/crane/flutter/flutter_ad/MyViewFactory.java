@@ -1,4 +1,4 @@
-package cn.crane.flutter.flutter_ad.view;
+package cn.crane.flutter.flutter_ad;
 
 import android.app.Activity;
 import android.content.Context;

@@ -7,11 +7,14 @@ import 'package:flutter/services.dart';
 const AVIEW = 'plugins.crane.view/AView';
 
 class BannerView extends StatefulWidget {
+
+  final void Function(String) listener;
+
   String title;
 
   dynamic params;
 
-  BannerView({Key key, this.title, this.params}) : super(key: key);
+  BannerView({Key key, this.title, this.params, this.listener}) : super(key: key);
 
   BannerViewState createState() => new BannerViewState();
 }
@@ -25,16 +28,17 @@ class BannerViewState extends State<BannerView> {
   void initState() {
     super.initState();
     if (_subscription == null) {
-//      _subscription = _eventChannel
-//          .receiveBroadcastStream("init")
-//          .listen(_onEvent, onError: _onError);
+      _subscription = _eventChannel
+          .receiveBroadcastStream()
+          .listen(_onEvent, onError: _onError);
     }
   }
 
   void _onEvent(Object value) {
     String event = value.toString();
     if (event != null && event.length > 0) {
-//      trackEvent(event);
+      print('_onEvent == $event');
+      widget.listener(event);
     }
   }
 

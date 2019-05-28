@@ -1,4 +1,4 @@
-package cn.crane.flutter.flutter_ad.view;
+package cn.crane.flutter.flutter_ad;
 
 import android.Manifest;
 import android.app.Activity;
@@ -286,7 +286,6 @@ public class AView implements PlatformView, MethodChannel.MethodCallHandler {
     }
     private void onEvent(String event) {
         if (!TextUtils.isEmpty(event) && eventChannel != null) {
-
             final String finalEvent = event;
             eventChannel.setStreamHandler(new EventChannel.StreamHandler() {
                 @Override

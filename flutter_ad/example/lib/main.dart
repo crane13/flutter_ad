@@ -30,12 +30,12 @@ class _MyAppState extends State<MyApp> {
     new Timer(Duration(seconds: 1), () {
 //      FlutterAd.showRewardAd("1101152570", "2090845242931421");
 
-      FlutterAd.showRewardAd({
-        'gdt_appId':'1101152570',
-        'gdt_rewardId':'2090845242931421',
-        'admob_appId':'ca-app-pub-3940256099942544~3347511713',
-        'admob_rewardId':'ca-app-pub-3940256099942544/5224354917'
-      });
+//      FlutterAd.showRewardAd({
+//        'gdt_appId':'1101152570',
+//        'gdt_rewardId':'2090845242931421',
+//        'admob_appId':'ca-app-pub-3940256099942544~3347511713',
+//        'admob_rewardId':'ca-app-pub-3940256099942544/5224354917'
+//      });
     });
   }
 
@@ -77,6 +77,9 @@ class _MyAppState extends State<MyApp> {
                   'gdt_bannerId': '4080052898050840',
                   'admob_appId': 'ca-app-pub-3940256099942544~3347511713',
                   'admob_bannerId': 'ca-app-pub-3940256099942544/6300978111',
+                },
+                listener: (event){
+                  print("BannerView event === ${event}");
                 },
               ),
               Text('Running on: $_platformVersion\n')

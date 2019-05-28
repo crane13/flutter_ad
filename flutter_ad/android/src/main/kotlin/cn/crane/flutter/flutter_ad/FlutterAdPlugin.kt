@@ -1,8 +1,6 @@
 package cn.crane.flutter.flutter_ad
 
 import cn.crane.flutter.flutter_ad.reward.RewardUtils
-import cn.crane.flutter.flutter_ad.view.AView
-import cn.crane.flutter.flutter_ad.view.MyViewFactory
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
