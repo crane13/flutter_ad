@@ -18,5 +18,7 @@ A Flutter plugin for AD.
   s.dependency 'GDTMobSDK', '~> 4.10.2'
 
   s.ios.deployment_target = '8.0'
+  s.static_framework = true
+  s.swift_version = '4.2'
 end
 

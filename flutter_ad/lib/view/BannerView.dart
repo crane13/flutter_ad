@@ -74,6 +74,11 @@ class BannerViewState extends State<BannerView> {
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: new UiKitView(
             viewType: AVIEW,
+            creationParams: {
+              "appId": widget.appId,
+              "bannerPosID": widget.bannerPosID,
+            },
+            creationParamsCodec: const StandardMessageCodec(),
           )),
     );
   }
