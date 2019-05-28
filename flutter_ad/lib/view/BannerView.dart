@@ -9,10 +9,9 @@ const AVIEW = 'plugins.crane.view/AView';
 class BannerView extends StatefulWidget {
   String title;
 
-  String appId;
-  String bannerPosID;
+  dynamic params;
 
-  BannerView({Key key, this.title, this.appId, this.bannerPosID}) : super(key: key);
+  BannerView({Key key, this.title, this.params}) : super(key: key);
 
   BannerViewState createState() => new BannerViewState();
 }
@@ -26,9 +25,9 @@ class BannerViewState extends State<BannerView> {
   void initState() {
     super.initState();
     if (_subscription == null) {
-      _subscription = _eventChannel
-          .receiveBroadcastStream("init")
-          .listen(_onEvent, onError: _onError);
+//      _subscription = _eventChannel
+//          .receiveBroadcastStream("init")
+//          .listen(_onEvent, onError: _onError);
     }
   }
 
@@ -58,10 +57,7 @@ class BannerViewState extends State<BannerView> {
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: new AndroidView(
             viewType: AVIEW,
-            creationParams: {
-              "appId": widget.appId,
-              "bannerPosID": widget.bannerPosID,
-            },
+            creationParams: widget.params,
             creationParamsCodec: const StandardMessageCodec(),
           )),
     );
@@ -74,10 +70,7 @@ class BannerViewState extends State<BannerView> {
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: new UiKitView(
             viewType: AVIEW,
-            creationParams: {
-              "appId": widget.appId,
-              "bannerPosID": widget.bannerPosID,
-            },
+            creationParams: widget.params,
             creationParamsCodec: const StandardMessageCodec(),
           )),
     );

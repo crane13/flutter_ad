@@ -12,7 +12,7 @@ import io.flutter.plugin.platform.PlatformViewFactory;
 
 public class MyViewFactory extends PlatformViewFactory {
     private final BinaryMessenger messenger;
-    private Activity activity;
+    private final Activity activity;
 
     public MyViewFactory(BinaryMessenger messenger, Activity activity) {
         super(StandardMessageCodec.INSTANCE);

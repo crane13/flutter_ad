@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_ad/flutter_ad.dart';
 import 'package:flutter_ad/view/BannerView.dart';
+//import 'package:permission_handler/permission_handler.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,23 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
+
+//    FlutterAd.requestPermission(PermissionGroup.phone).then((permissionStatus) {
+//      if (permissionStatus == PermissionStatus.granted) {
+//        FlutterAd.showRewardAd("1101152570", "2090845242931421");
+//      }
+//    });
+
+    new Timer(Duration(seconds: 1), () {
+//      FlutterAd.showRewardAd("1101152570", "2090845242931421");
+
+      FlutterAd.showRewardAd({
+        'gdt_appId':'1101152570',
+        'gdt_rewardId':'2090845242931421',
+        'admob_appId':'ca-app-pub-3940256099942544~3347511713',
+        'admob_rewardId':'ca-app-pub-3940256099942544/5224354917'
+      });
+    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -39,6 +57,8 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _platformVersion = platformVersion;
     });
+
+    FlutterAd.registerAppId("ca-app-pub-3940256099942544~3347511713");
   }
 
   @override
@@ -52,8 +72,12 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: <Widget>[
               BannerView(
-                appId: '1101152570',
-                bannerPosID: '4080052898050840',
+                params: {
+                  'gdt_appId': '1101152570',
+                  'gdt_bannerId': '4080052898050840',
+                  'admob_appId': 'ca-app-pub-3940256099942544~3347511713',
+                  'admob_bannerId': 'ca-app-pub-3940256099942544/6300978111',
+                },
               ),
               Text('Running on: $_platformVersion\n')
             ],
